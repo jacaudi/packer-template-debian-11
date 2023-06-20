@@ -37,7 +37,7 @@ $ packer init
 $ packer build -var-file vars/debian_11.pkrvars.hcl -var-file vars.pkrvars.hcl.sample .
 ```
 
-Be sure to adjust this code as necessary for your setup and to make sure *_NOT_* to commit the `.pkrvars.hcl` file to your git repository.
+Be sure to adjust this code as necessary for your setup and to make sure *_NOT_* to commit the `.pkrvars.hcl` file that contains your credentials to your git repository.
 
 ---
 
