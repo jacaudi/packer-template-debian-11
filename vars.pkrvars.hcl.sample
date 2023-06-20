@@ -1,0 +1,2 @@
+proxmox_api_user     = "<<NOTAREALUSER>>"
+proxmox_api_password = "<<NOTAREALPASSWORD>>"

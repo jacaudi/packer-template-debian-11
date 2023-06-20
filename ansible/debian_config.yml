@@ -1,0 +1,9 @@
+---
+- name: Debian Config - Debian Baseline & Docker Install
+  hosts: default
+  gather_facts: yes
+  become: yes
+
+  tasks:
+    - include_tasks: tasks/baseline.yml
+    - include_tasks: tasks/docker.yml
