@@ -1,6 +1,6 @@
 # Packer Debain 11 (Bullseye) Template for Proxmox
 
-Packer configuration for creating Debian 11 virtual machine templates for Proxmox VE.
+Packer configuration for creating Debian 11 virtual machine templates for Proxmox VE. Inspired by, and based upon the work started by, [Roman Tomjak](https://github.com/romantomjak/packer-proxmox-template)
 
 ## Requirements
 
