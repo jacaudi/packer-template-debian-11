@@ -31,7 +31,6 @@ source "proxmox-iso" "debian-11" {
     disk_size         = var.disk_size
     format            = var.disk_format
     storage_pool      = var.storage_pool
-    storage_pool_type = var.storage_pool_type
     type              = "scsi"
   }
 
