@@ -12,10 +12,10 @@
 
 - name: Install Docker Engine, Docker CLI, Containerd, & Docker Compose
   apt:
-    update_cache: yes
+    update_cache: true
     name: "{{item}}"
     state: present
-    install_recommends: yes
+    install_recommends: true
   loop:
     - docker-ce
     - docker-ce-cli
