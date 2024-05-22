@@ -24,6 +24,9 @@
 - name: Set Docker Registry Proxy Configuration
   ansible.builtin.copy:
     dest: "/etc/docker/daemon.json"
+    owner: root
+    group: root
+    mode: '0644'
     content: |
       {
               "metrics-addr": "127.0.0.1:9323",
