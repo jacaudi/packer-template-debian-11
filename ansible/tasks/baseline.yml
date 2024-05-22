@@ -6,23 +6,22 @@
 
 - name: Install Core Dependencies, Clean APT, & Remove Old Programs
   ansible.builtin.apt:
-    name: "{{item}}"
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - cloud-init
+      - curl
+      - gnupg-agent
+      - htop
+      - linux-headers-amd64
+      - linux-image-amd64
+      - ncdu
+      - sudo
+      - software-properties-common
+      - tmux
+      - unattended-upgrades
+      - wget
     state: present
     install_recommends: true
     autoremove: true
     autoclean: true
-  loop:
-    - apt-transport-https
-    - ca-certificates
-    - cloud-init
-    - curl
-    - gnupg-agent
-    - htop
-    - linux-headers-amd64
-    - linux-image-amd64
-    - ncdu
-    - sudo
-    - software-properties-common
-    - tmux
-    - unattended-upgrades
-    - wget

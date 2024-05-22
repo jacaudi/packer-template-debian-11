@@ -13,14 +13,13 @@
 - name: Install Docker Engine, Docker CLI, Containerd, & Docker Compose
   ansible.builtin.apt:
     update_cache: true
-    name: "{{item}}"
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-compose-plugin
     state: present
     install_recommends: true
-  loop:
-    - docker-ce
-    - docker-ce-cli
-    - containerd.io
-    - docker-compose-plugin
 
 - name: Set Docker Registry Proxy Configuration
   ansible.builtin.copy:
