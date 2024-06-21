@@ -1,28 +1,27 @@
 ---
 - name: Upgrade All Packages To The Latest Version
-  apt:
-    update_cache: yes
-    upgrade: yes
+  ansible.builtin.apt:
+    update_cache: true
+    upgrade: true
 
 - name: Install Core Dependencies, Clean APT, & Remove Old Programs
-  apt:
-    name: "{{item}}"
+  ansible.builtin.apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - cloud-init
+      - curl
+      - gnupg-agent
+      - htop
+      - linux-headers-amd64
+      - linux-image-amd64
+      - ncdu
+      - sudo
+      - software-properties-common
+      - tmux
+      - unattended-upgrades
+      - wget
     state: present
-    install_recommends: yes
-    autoremove: yes
-    autoclean: yes
-  loop:
-    - apt-transport-https
-    - ca-certificates
-    - cloud-init
-    - curl
-    - gnupg-agent
-    - htop
-    - linux-headers-amd64
-    - linux-image-amd64
-    - ncdu
-    - sudo
-    - software-properties-common
-    - tmux
-    - unattended-upgrades
-    - wget
+    install_recommends: true
+    autoremove: true
+    autoclean: true

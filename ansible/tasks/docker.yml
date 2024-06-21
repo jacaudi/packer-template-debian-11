@@ -1,30 +1,32 @@
 ---
 - name: Add GPG key for Docker Repository
-  apt_key:
+  ansible.builtin.apt_key:
     url: https://download.docker.com/linux/debian/gpg
     state: present
 
 - name: Add Docker Repository
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: deb https://download.docker.com/linux/debian bullseye stable
     state: present
     filename: docker
 
 - name: Install Docker Engine, Docker CLI, Containerd, & Docker Compose
-  apt:
-    update_cache: yes
-    name: "{{item}}"
+  ansible.builtin.apt:
+    update_cache: true
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-compose-plugin
     state: present
-    install_recommends: yes
-  loop:
-    - docker-ce
-    - docker-ce-cli
-    - containerd.io
-    - docker-compose-plugin
+    install_recommends: true
 
 - name: Set Docker Registry Proxy Configuration
-  copy:
+  ansible.builtin.copy:
     dest: "/etc/docker/daemon.json"
+    owner: root
+    group: root
+    mode: '0644'
     content: |
       {
               "metrics-addr": "127.0.0.1:9323",
